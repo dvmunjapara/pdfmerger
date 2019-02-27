@@ -1,5 +1,5 @@
 {
-    "name": "genesis/pdfmerger",
+    "name": "genesisweb/pdfmerger",
     "description": "Library for merging/splitting multiple PDFs",
     "keywords": ["pdf", "merge","split"],
     "homepage": "https://github.com/Divyank123/pdfmerger",
