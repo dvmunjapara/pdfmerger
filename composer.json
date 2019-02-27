@@ -23,5 +23,7 @@
     },
     "require-dev": {
         "smalot/pdfparser": "~0.13"
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
