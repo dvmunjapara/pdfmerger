@@ -1,0 +1,27 @@
+{
+    "name": "genesis/pdfmerger",
+    "description": "Library for merging/splitting multiple PDFs",
+    "keywords": ["pdf", "merge","split"],
+    "homepage": "https://github.com/Divyank123/pdfmerger",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Divyank",
+            "email": "divyank@genesisweb.io"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Genesis\\PdfMerger\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.1",
+        "setasign/fpdi-tcpdf": "^2.0",
+        "rafikhaceb/tcpdi": "^1"
+    },
+    "require-dev": {
+        "smalot/pdfparser": "~0.13"
+    }
+}
