@@ -59,6 +59,8 @@ final class TcpdiDriver implements DriverInterface
             $pageCount = 0;
 
             foreach ($sources as $source) {
+
+                $sourceName = $source->getName();
                 $pageCount += $tcpdi->setSourceData($source->getContents());
             }
 

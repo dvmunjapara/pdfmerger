@@ -55,7 +55,7 @@ final class Fpdi2Driver implements DriverInterface
             }
 
             $mode = $this->_switchmode($output_mode);
-            return $tcpdi->Output($outputpath, $mode);
+            return $fpdi->Output($destination, $mode);
         } catch (\Exception $e) {
             throw new Exception("'{$e->getMessage()}' in '$sourceName'", 0, $e);
         }
@@ -68,7 +68,9 @@ final class Fpdi2Driver implements DriverInterface
             $fpdi = clone $this->fpdi;
             $pageCount = 0;
 
+
             foreach ($sources as $source) {
+                $sourceName = $source->getName();
                 $pageCount += $fpdi->setSourceFile(StreamReader::createByString($source->getContents()));
             }
 
@@ -77,6 +79,32 @@ final class Fpdi2Driver implements DriverInterface
         } catch (\Exception $e) {
 
             throw new Exception("'{$e->getMessage()}' in '$sourceName'", 0, $e);
+        }
+    }
+
+    /**
+     * FPDI uses single characters for specifying the output location. Change our more descriptive string into proper format.
+     * @param $mode
+     * @return string
+     */
+    private function _switchmode($mode)
+    {
+        switch (strtolower($mode)) {
+            case 'download':
+                return 'D';
+                break;
+            case 'browser':
+                return 'I';
+                break;
+            case 'file':
+                return 'F';
+                break;
+            case 'string':
+                return 'S';
+                break;
+            default:
+                return 'I';
+                break;
         }
     }
 }
