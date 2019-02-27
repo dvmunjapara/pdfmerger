@@ -25,7 +25,6 @@ final class DefaultDriver implements DriverInterface
 
     public function pageCount(SourceInterface ...$sources): int
     {
-        dd($sources);
         return $this->wrapped->pageCount($sources);
     }
 }
